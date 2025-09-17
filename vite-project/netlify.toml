@@ -3,7 +3,7 @@
   base = "vite-project"
   
   # Directory that contains the deploy-ready HTML files and assets
-  publish = "vite-project/dist"
+  publish = "dist"
   
   # Default build command
   command = "npm run build"
