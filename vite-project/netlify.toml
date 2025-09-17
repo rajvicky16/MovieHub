@@ -1,9 +1,9 @@
 [build]
-  # Directory with the netlify.toml file is the base directory
-  base = "."
+  # Base directory - where netlify.toml and package.json are located
+  base = "vite-project"
   
   # Directory that contains the deploy-ready HTML files and assets
-  publish = "dist"
+  publish = "vite-project/dist"
   
   # Default build command
   command = "npm run build"
