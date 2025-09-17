@@ -1,0 +1,36 @@
+[build]
+  # Directory with the netlify.toml file is the base directory
+  base = "."
+  
+  # Directory that contains the deploy-ready HTML files and assets
+  publish = "dist"
+  
+  # Default build command
+  command = "npm run build"
+
+[build.environment]
+  # Node version
+  NODE_VERSION = "18"
+  
+  # Disable secrets scanning for TMDB API key (it's meant to be public)
+  SECRETS_SCAN_OMIT_KEYS = "VITE_TMDB_API_KEY"
+
+# Redirect rules for SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for better security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
